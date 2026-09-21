@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= profile.name %> — <%= profile.role %></title>
+  <meta name="description" content="<%= profile.hero.subhead %>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#main"><%= profile.name %></a>
+    <nav class="main-nav">
+      <% profile.nav.forEach(function(item) { %>
+        <a href="<%= item.href %>"><%= item.label %></a>
+      <% }) %>
+    </nav>
+    <a class="btn btn-small" href="#contact">Let's Talk</a>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="status"><span class="status-dot"></span> <%= profile.availability %></p>
+        <p class="kicker"><%= profile.hero.eyebrow %></p>
+        <h1><%= profile.hero.headline %></h1>
+        <p class="hero-sub"><%= profile.hero.subhead %></p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="<%= profile.hero.primaryCta.href %>"><%= profile.hero.primaryCta.label %></a>
+          <a class="btn btn-ghost" href="<%= profile.hero.secondaryCta.href %>"><%= profile.hero.secondaryCta.label %></a>
+        </div>
+        <div class="link-row">
+          <% profile.hero.links.forEach(function(l) { %>
+            <a href="<%= l.href %>" target="_blank" rel="noopener"><%= l.label %></a>
+          <% }) %>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <% profile.hero.stats.forEach(function(s) { %>
+          <div class="stat">
+            <span class="stat-value"><%= s.value %></span>
+            <span class="stat-label"><%= s.label %></span>
+          </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section" id="capabilities">
+      <h2><%= profile.capabilities.heading %></h2>
+      <div class="capability-grid">
+        <% profile.capabilities.items.forEach(function(item) { %>
+          <div class="capability-card">
+            <h3><%= item.title %></h3>
+            <p><%= item.description %></p>
+            <div class="tag-row">
+              <% item.tags.forEach(function(t) { %><span class="tag"><%= t %></span><% }) %>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section" id="work">
+      <h2><%= profile.work.heading %></h2>
+      <div class="project-list">
+        <% profile.work.projects.forEach(function(p) { %>
+          <article class="project-row">
+            <div class="project-image">
+              <img src="<%= p.image %>" alt="<%= p.title %> preview" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <p class="kicker"><%= p.category %></p>
+              <h3><%= p.title %></h3>
+              <p><%= p.description %></p>
+              <a class="project-link" href="<%= p.link.href %>" target="_blank" rel="noopener"><%= p.link.label %></a>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+      <a class="all-projects" href="<%= profile.work.allProjectsLink.href %>"><%= profile.work.allProjectsLink.label %></a>
+    </section>
+
+    <!-- STACK -->
+    <section class="section" id="stack">
+      <h2><%= profile.stack.heading %></h2>
+      <div class="about-photo">
+        <img src="<%= profile.stack.photo %>" alt="Portrait of <%= profile.name %>" />
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <h2><%= profile.experience.heading %></h2>
+      <div class="timeline">
+        <% profile.experience.items.forEach(function(job, idx) { %>
+          <div class="timeline-item">
+            <div class="timeline-marker"><span><%= String(idx + 1).padStart(2, '0') %></span></div>
+            <div class="timeline-content">
+              <p class="kicker"><%= job.period %></p>
+              <h3><%= job.title %></h3>
+              <p class="org"><%= job.org %></p>
+              <% if (job.points.length) { %>
+                <ul>
+                  <% job.points.forEach(function(pt) { %><li><%= pt %></li><% }) %>
+                </ul>
+              <% } %>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+      <h2><%= profile.process.heading %></h2>
+      <div class="process-row">
+        <% profile.process.steps.forEach(function(step, idx) { %>
+          <div class="process-step">
+            <span class="process-num"><%= String(idx + 1).padStart(2, '0') %></span>
+            <h3><%= step.title %></h3>
+            <p><%= step.description %></p>
+          </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="about-photo">
+        <img src="<%= profile.about.photo %>" alt="Portrait of <%= profile.name %>" />
+      </div>
+      <div class="about-copy">
+        <h2><%= profile.about.heading %></h2>
+        <% profile.about.paragraphs.forEach(function(p) { %>
+          <p><%= p %></p>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <h2><%= profile.contact.heading %></h2>
+      <p class="hero-sub"><%= profile.contact.subhead %></p>
+      <a class="email-link" href="mailto:<%= profile.contact.email %>"><%= profile.contact.email %></a>
+      <div class="link-row">
+        <% profile.contact.links.forEach(function(l) { %>
+          <a href="<%= l.href %>" target="_blank" rel="noopener"><%= l.label %></a>
+        <% }) %>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <p class="footer-name"><%= profile.name %> / 9536230187</p>
+      <p class="footer-tagline"><%= profile.footer.tagline %></p>
+    </div>
+    <nav class="footer-nav">
+      <% profile.nav.forEach(function(item) { %>
+        <a href="<%= item.href %>"><%= item.label %></a>
+      <% }) %>
+    </nav>
+    <p class="footer-copy">© <%= profile.footer.year %> <%= profile.name %></p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
