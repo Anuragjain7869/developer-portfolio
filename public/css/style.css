@@ -330,6 +330,9 @@ p { margin: 0 0 1rem; color: var(--text-dim); max-width: 62ch; }
   .process-row { grid-template-columns: repeat(2, 1fr); }
   .about { grid-template-columns: 1fr; }
   .main-nav { display: none; }
+  .about-photo { width: 100%; }
+  .about-copy { margin-left: 0px; }
+  .about-photo img { height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

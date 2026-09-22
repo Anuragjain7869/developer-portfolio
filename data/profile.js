@@ -30,7 +30,7 @@ module.exports = {
     ],
     stats: [
       { value: "7+", label: "Years experience" },
-      { value: "50+", label: "Projects delivered" },
+      { value: "80+", label: "Projects delivered" },
       { value: "10+", label: "Team members led" },
     ],
   },
@@ -117,7 +117,7 @@ module.exports = {
       },
       {
         period: "March 2024 — March 2025",
-        title: "Senior Magento Develper",
+        title: "Senior Magento Developer",
         org: "Nova Web Innovations",
         points: [
           "Designed and implemented a comprehensive Abandoned Cart Recovery system. Developed a Delivery Date / Time Slot module to optimize logistics.",
@@ -126,7 +126,7 @@ module.exports = {
       },
       {
         period: "October 2023 — February 2024",
-        title: "Senior Magento Develper",
+        title: "Senior Magento Developer",
         org: "Futuresoft India Pvt. Ltd.",
         points: [
           "Worked on Paypal Marketplace payment method and integrated the client mobile application.",
